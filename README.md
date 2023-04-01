@@ -1,3 +1,5 @@
+[![Sync Fork](https://github.com/0xffan/hugo-toigian/actions/workflows/sync-fork.yml/badge.svg)](https://github.com/0xffan/hugo-toigian/actions/workflows/sync-fork.yml)
+---
 <div align="center">
  <img src="./static/favicon_io/android-chrome-192x192.png">
  <h1>Hugo Toigian</h1>
