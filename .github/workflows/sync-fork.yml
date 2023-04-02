@@ -1,15 +1,29 @@
 name: Sync Fork
 
 on:
-    schedule:
-        - cron: "0 8 * * *" # 每天0点触发
+  schedule:
+    - cron: '0 */12 * * *' # every 12 hours
+  workflow_dispatch: # on button click
+
 jobs:
-    repo-sync:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: TG908/fork-sync@v1.1
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }} # 这个 token action 会默认配置, 这里只需这样写就行
-                  owner: ntk148v # fork 上游项目 owner
-                  head: master # fork 上游项目需要同步的分支
-                  base: master # 需要同步到本项目的目标分支
+  sync_latest_from_upstream:
+    name: Sync latest commits from upstream repo
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: run a standard checkout action, provided by github
+    - name: Checkout target repo
+      uses: actions/checkout@v3
+
+    # Step 2: run the sync action
+    - name: Sync upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+      with:
+        upstream_sync_repo: ntk148v/hugo-toigian
+        upstream_sync_branch: master
+        target_sync_branch: master
+        target_repo_token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, no need to set
+        
+        # Set test_mode true to run tests instead of the true action!!
+        test_mode: false
