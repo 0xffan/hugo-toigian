@@ -1,5 +1,10 @@
 <head>
   <meta charset="utf-8" />
+  <meta
+    name="description"
+    content="Author: Kien Nguyen <kiennt2609@gmail.com>
+      A minimal Hugo theme with Tailwind CSS"
+  />
   <title>
     {{ block "title" . }}
       {{ .Site.Title }}
@@ -26,14 +31,6 @@
     href="{{ "favicon_io/favicon-32x32.png" | relURL }}"
     size="32x32"
     type="image/png"
-  />
-
-  {{/* RSS */}}
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    href="{{ .Site.BaseURL }}/index.xml"
-    title="{{ .Site.Title }}"
   />
 
   {{/* Rose pine */}}
@@ -123,6 +120,7 @@
 
   <!-- mermaid -->
   <script
+    async
     defer
     src="{{ $main_js.RelPermalink }}"
     integrity="{{- $main_js.Data.Integrity -}}"
