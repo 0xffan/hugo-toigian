@@ -43,23 +43,24 @@ h6 {
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-4xl;
 }
 
 h2 {
-  @apply text-2xl;
+  @apply text-3xl;
   counter-increment: h2;
   counter-reset: h3;
 }
 
 h3 {
-  @apply text-xl;
+  @apply text-2xl;
   counter-increment: h3;
   counter-reset: h4;
 }
 
 h4 {
   @apply text-xl;
+  counter-increment: h4;
 }
 
 h6 {
@@ -68,18 +69,18 @@ h6 {
 
 /* nested counters */
 h2::before {
-  @apply text-muted;
-  content: counter(h2) ". ";
+  @apply text-muted mr-2 -ml-3;
+  content: counter(h2);
 }
 
 h3::before {
-  @apply text-muted;
-  content: counter(h2) "." counter(h3) ". ";
+  @apply text-muted mr-2 -ml-3;
+  content: counter(h2) "." counter(h3);
 }
 
 h4::before {
-  @apply text-muted;
-  content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+  @apply text-muted mr-2 -ml-3;
+  content: counter(h2) "." counter(h3) "." counter(h4);
 }
 
 [id] {
@@ -146,7 +147,7 @@ pre > code {
 /* ################################# */
 @media screen and (min-width: 1080px) {
   #toc {
-    @apply fixed top-sidebar-top left-page-gutter z-40 w-1/4 px-page-gutter py-sidebar-top;
+    @apply fixed top-sidebar-top left-page-gutter z-40 w-1/4 h-3/4 overflow-auto px-page-gutter py-sidebar-top;
   }
 }
 
